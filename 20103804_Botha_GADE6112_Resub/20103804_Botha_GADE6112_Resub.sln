@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20103804_Botha_GADE6112_Resub", "20103804_Botha_GADE6112_Resub\20103804_Botha_GADE6112_Resub.csproj", "{D9A717D0-32C7-4010-AA76-40BA89DC87BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9A717D0-32C7-4010-AA76-40BA89DC87BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9A717D0-32C7-4010-AA76-40BA89DC87BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9A717D0-32C7-4010-AA76-40BA89DC87BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9A717D0-32C7-4010-AA76-40BA89DC87BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3240142-9610-464F-8A75-40E5EBEF26D8}
+	EndGlobalSection
+EndGlobal
