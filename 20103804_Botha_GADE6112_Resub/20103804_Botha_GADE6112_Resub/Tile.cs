@@ -47,6 +47,7 @@ namespace _20103804_Botha_GADE6112_Resub
         GOLD,
         WEAPON,
         OBSTACLE,
+        ITEM,
         EMPTY
     }
 }

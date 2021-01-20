@@ -18,6 +18,7 @@ namespace _20103804_Botha_GADE6112_Resub
         protected int damage;
         protected Tile[] vision;
         protected Movement movement;
+        protected int goldPurse = 0;
 
         public int HP
         {
@@ -33,6 +34,12 @@ namespace _20103804_Botha_GADE6112_Resub
         public Tile[] Vision
         {
             get { return vision; }
+        }
+
+        public int GoldPurse
+        {
+            get { return goldPurse; }
+            //set { goldPurse = value; }
         }
 
         public Character(int x, int y, TileType type):base(x, y, type)
@@ -74,6 +81,7 @@ namespace _20103804_Botha_GADE6112_Resub
                 case Movement.RIGHT: x += 1;
                     break;
             }
+            //break jumps t0 this part of our method
         }
 
         public void SetVision(Tile up, Tile down, Tile left, Tile right)
@@ -82,6 +90,15 @@ namespace _20103804_Botha_GADE6112_Resub
             vision[1] = down;
             vision[2] = left;
             vision[3] = right;
+        }
+
+        public void PickUp(Item item)
+        {
+            if(item is Gold)
+            {
+                Gold gold = (Gold)item;
+                goldPurse += gold.GoldAmount;
+            }
         }
 
         public abstract Movement ReturnMove(Movement move = 0);
@@ -101,7 +118,6 @@ namespace _20103804_Botha_GADE6112_Resub
 
     public enum AttackDirection
     {
-        DEFAULT,
         UP, //0
         DOWN, //1
         LEFT, //2

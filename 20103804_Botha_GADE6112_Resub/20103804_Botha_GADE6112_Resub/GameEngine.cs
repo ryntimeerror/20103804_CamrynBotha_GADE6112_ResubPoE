@@ -22,7 +22,7 @@ namespace _20103804_Botha_GADE6112_Resub
 
         public GameEngine()
         {
-            map = new Map(6, 12, 6, 12, 10);
+            map = new Map(10, 20, 10, 20, 10, 6);
         }
 
         public bool MovePlayer(Movement desiredMove)
@@ -41,6 +41,8 @@ namespace _20103804_Botha_GADE6112_Resub
 
         public string PlayerAttack(AttackDirection direction)
         {
+            //for some reason I can only attack up and down but not left and right?
+
             int visionIndex = (int)direction;
             string failMessage = "Hero attack failed";
 
@@ -63,6 +65,7 @@ namespace _20103804_Botha_GADE6112_Resub
                 return "Hero attacked enemy \n"
                        + "Enemy HP: " + enemy.HP + "/" + enemy.MaxHP;
             }
+
             return failMessage;
         }
 

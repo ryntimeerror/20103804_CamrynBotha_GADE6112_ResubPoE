@@ -16,6 +16,7 @@ namespace _20103804_Botha_GADE6112_Resub
         Tile[,] map;
         Hero hero;
         Enemy[] enemies;
+        Item[] items;
 
         int width;
         int height;
@@ -28,21 +29,30 @@ namespace _20103804_Botha_GADE6112_Resub
         }
 
         //Task 1 - Q3.2
-        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies)
+        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies, int numItems)
         {
             width = random.Next(minWidth, maxWidth + 1);
             height = random.Next(minHeight, maxHeight + 1);
 
             map = new Tile[width, height];
             enemies = new Enemy[numEnemies];
+            items = new Item[numItems];
 
             InitializeMap();
 
+            //create hero
             hero = (Hero)Create(TileType.HERO);
 
+            //create enemies (gob/mage)
             for (int i = 0; i < enemies.Length; i++)
             {
                 enemies[i] = (Enemy)Create(TileType.ENEMY);
+            }
+
+            //create items (gold)
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i] = (Item)Create(TileType.GOLD);
             }
 
             UpdateVision();
@@ -83,7 +93,18 @@ namespace _20103804_Botha_GADE6112_Resub
             }
             else if (type == TileType.ENEMY)
             {
-                map[x, y] = new Goblin(x, y);
+                if (random.Next(0,2) == 1)
+                {
+                    map[x, y] = new Goblin(x, y);
+                }
+                else
+                {
+                    map[x, y] = new Mage(x, y);
+                }                
+            }
+            else if(type == TileType.GOLD)
+            {
+                map[x, y] = new Gold(x, y);
             }
 
             return map[x, y];
@@ -167,11 +188,27 @@ namespace _20103804_Botha_GADE6112_Resub
                         {
                             mapString += "\u2020";
                         }
-                        else if (currentType == TileType.ENEMY)
+                        else
                         {
-                            mapString += 'G';
+                            if (enemy is Goblin)
+                            {
+                                mapString += 'G';
+                            }
+                            else if(enemy is Mage)
+                            {
+                                mapString += 'M';
+                            }
                         }
-                    }                    
+                    }
+                    else if(currentType == TileType.ITEM)
+                    {
+                        if(map[x,y] is Gold)
+                        {
+                            //explicit cast from Tile to Gold
+                            Gold gold = (Gold)map[x, y];
+                            mapString += gold.GoldAmount;
+                        }
+                    }
                     else if (currentType == TileType.EMPTY)
                     {
                         mapString += '.';
@@ -181,6 +218,7 @@ namespace _20103804_Botha_GADE6112_Resub
                         mapString += 'X';
                     }                    
                 }
+
                 mapString += "\n";
             }
             return mapString;
