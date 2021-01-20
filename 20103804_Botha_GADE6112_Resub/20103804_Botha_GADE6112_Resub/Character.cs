@@ -14,7 +14,7 @@ namespace _20103804_Botha_GADE6112_Resub
     abstract class Character : Tile
     {
         protected int hp;
-        protected int maxHp;
+        protected int maxHP;
         protected int damage;
         protected Tile[] vision;
         protected Movement movement;
@@ -25,15 +25,25 @@ namespace _20103804_Botha_GADE6112_Resub
             set { hp = value; }
         }
 
+        public int MaxHP
+        {
+            get { return maxHP; }
+        }
+
+        public Tile[] Vision
+        {
+            get { return vision; }
+        }
+
         public Character(int x, int y, TileType type):base(x, y, type)
         {
-            //empty constructor
+            vision = new Tile[4]; // 0 = up, 1 = down, 2 = left, 3 = right
         }
 
         //Task 1 - Q2.3
         public virtual void Attack(Character target)
         {
-            target.hp -= this.damage;
+            target.HP -= this.damage;
         }
 
         public bool isDead()
@@ -55,15 +65,23 @@ namespace _20103804_Botha_GADE6112_Resub
         {
             switch (movement)
             {
-                case Movement.UP: y -= 1;
+                case Movement.UP: y -= 1; 
                     break;
-                case Movement.DOWN: y += 1;
+                case Movement.DOWN: y += 1; 
                     break;
                 case Movement.LEFT: x -= 1;
                     break;
                 case Movement.RIGHT: x += 1;
                     break;
             }
+        }
+
+        public void SetVision(Tile up, Tile down, Tile left, Tile right)
+        {
+            vision[0] = up;
+            vision[1] = down;
+            vision[2] = left;
+            vision[3] = right;
         }
 
         public abstract Movement ReturnMove(Movement move = 0);
@@ -80,4 +98,14 @@ namespace _20103804_Botha_GADE6112_Resub
         LEFT, //3
         RIGHT //4
     }
+
+    public enum AttackDirection
+    {
+        DEFAULT,
+        UP, //0
+        DOWN, //1
+        LEFT, //2
+        RIGHT //3
+    }
+
 }

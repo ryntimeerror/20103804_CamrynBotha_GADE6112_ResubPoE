@@ -16,7 +16,7 @@ namespace _20103804_Botha_GADE6112_Resub
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmGame());
         }
     }
 }
