@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace _20103804_Botha_GADE6112_Resub
 {
+    [System.Serializable]
     //Task 1 - Q2.6
     class Hero : Character
     {
@@ -21,10 +22,14 @@ namespace _20103804_Botha_GADE6112_Resub
         public override Movement ReturnMove(Movement move = 0)
         {
             int dir = (int)move - 1;
+            Tile tile = vision[dir];
 
-            if(vision [dir] != null && vision[dir].Type == TileType.EMPTY)
+            if(tile != null)
             {
-                return move;
+                if(tile.Type == TileType.EMPTY || tile.Type == TileType.ITEM)
+                {
+                    return move;
+                }
             }
              
             return Movement.NO_MOVEMENT;            
@@ -35,6 +40,7 @@ namespace _20103804_Botha_GADE6112_Resub
             return "Player Stats: \n"
                    + "HP: " + hp + "/" + maxHP + "\n"
                    + "Damage: " + damage + "\n"
+                   + "Gold: " + goldPurse + "\n"
                    + "[ " + x + ", " + y + " ]";
         }
     }

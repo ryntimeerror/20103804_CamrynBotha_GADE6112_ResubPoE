@@ -22,14 +22,14 @@ namespace _20103804_Botha_GADE6112_Resub
         public frmGame()
         {
             gameEngine = new GameEngine();
-
-
+           
             InitializeComponent();
         }
 
         private void frmGame_Load(object sender, EventArgs e)
         {
             lblMap.Text = gameEngine.View;
+            lblBattleInfo.Text = gameEngine.HeroStats;
         }
 
         private void frmGame_KeyPress(object sender, KeyPressEventArgs e)
@@ -66,30 +66,45 @@ namespace _20103804_Botha_GADE6112_Resub
             {
                 AttackLeft();
             }
+            else if (e.KeyChar == '1')
+            {
+                SaveGame();
+            }
+            else if (e.KeyChar == '2')
+            {
+                LoadGame();
+            }
         }
 
         private void MoveUp()
         {
             gameEngine.MovePlayer(Movement.UP);
+            lblBattleInfo.Text = gameEngine.HeroStats;
             lblMap.Text = gameEngine.View;
+            
         }
 
         private void MoveLeft()
         {
             gameEngine.MovePlayer(Movement.LEFT);
+            lblBattleInfo.Text = gameEngine.HeroStats;
             lblMap.Text = gameEngine.View;
+            
         }
 
         private void MoveDown()
         {
             gameEngine.MovePlayer(Movement.DOWN);
+            lblBattleInfo.Text = gameEngine.HeroStats;
             lblMap.Text = gameEngine.View;
+            
         }
 
         private void MoveRight()
         {
             gameEngine.MovePlayer(Movement.RIGHT);
-            lblMap.Text = gameEngine.View;
+            lblBattleInfo.Text = gameEngine.HeroStats;
+            lblMap.Text = gameEngine.View;            
         }
 
         private void AttackUp()
@@ -117,5 +132,16 @@ namespace _20103804_Botha_GADE6112_Resub
             lblMap.Text = gameEngine.View;
         }
 
+        private void SaveGame()
+        {
+            gameEngine.Save();
+        }
+
+        private void LoadGame()
+        {
+            gameEngine.Load();
+            lblBattleInfo.Text = gameEngine.HeroStats;
+            lblMap.Text = gameEngine.View;
+        }
     }
 }

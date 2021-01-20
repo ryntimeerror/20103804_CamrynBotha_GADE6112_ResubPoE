@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace _20103804_Botha_GADE6112_Resub
 {
     //Task 1 - Q2.5
+    [System.Serializable]
     class Goblin : Enemy
     {
         public Goblin(int x, int y) : base (x, y, 1, 10)

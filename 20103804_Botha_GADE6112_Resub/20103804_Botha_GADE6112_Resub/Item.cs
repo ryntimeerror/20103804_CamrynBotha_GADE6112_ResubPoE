@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace _20103804_Botha_GADE6112_Resub
 {
     //Task 2 - Q2.1
+    [System.Serializable]
     abstract class Item : Tile
     {
         public Item (int x, int y) : base (x, y, TileType.ITEM)

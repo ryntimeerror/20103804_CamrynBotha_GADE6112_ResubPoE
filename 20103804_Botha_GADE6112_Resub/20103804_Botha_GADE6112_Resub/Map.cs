@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace _20103804_Botha_GADE6112_Resub
 {
     //Task 1 - Q3.1
+    [System.Serializable]
     class Map
     {
         Tile[,] map;
@@ -28,6 +29,10 @@ namespace _20103804_Botha_GADE6112_Resub
             get { return hero; }
         }
 
+        public Enemy[] Enemies
+        {
+            get { return enemies; }
+        }
         //Task 1 - Q3.2
         public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numEnemies, int numItems)
         {
@@ -162,7 +167,46 @@ namespace _20103804_Botha_GADE6112_Resub
                 map[currentEnemy.X, currentEnemy.Y] = enemies[i];
             }
 
+            for(int i = 0; i < items.Length; i++)
+            {
+                Item item = items[i];
+                
+                if(item != null)
+                {
+                    map[item.X, item.Y] = items[i];
+                }
+                
+            }
+
             UpdateVision();
+        }
+
+        public Item GetItemAtPosition(int x, int y)
+        {
+            //[g, g, null, g, g, null] >> example array
+
+            for(int i = 0; i < items.Length; i++)
+            {    
+                //enure we don't try to use null as an item
+                if (items[i] == null)
+                {
+                    continue;
+                }
+
+                //have we found the item that we're looking for
+                if (items[i].X == x && items[i].Y == y)
+                {
+                    Item tempItem = items[i];
+                    items[i] = null;
+                    return tempItem;
+
+                    /* ^^ have to put item into temp var so as 
+                     * not to return null while still setting 
+                     * the item to null*/
+                }
+            }
+
+            return null;
         }
 
         public override string ToString()

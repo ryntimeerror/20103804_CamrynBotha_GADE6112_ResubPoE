@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace _20103804_Botha_GADE6112_Resub
 {
     //Task 1 - Q2.1
+    [System.Serializable]
     class Obstacle : Tile
     {
         public Obstacle(int x, int y) : base(x, y, TileType.OBSTACLE)

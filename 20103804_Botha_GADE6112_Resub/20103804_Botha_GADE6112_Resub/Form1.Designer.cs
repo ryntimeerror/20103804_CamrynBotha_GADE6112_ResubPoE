@@ -30,6 +30,7 @@
         {
             this.lblMap = new System.Windows.Forms.Label();
             this.lblBattleInfo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblMap
@@ -45,18 +46,28 @@
             // 
             // lblBattleInfo
             // 
-            this.lblBattleInfo.AutoSize = true;
             this.lblBattleInfo.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBattleInfo.Location = new System.Drawing.Point(368, 18);
+            this.lblBattleInfo.Location = new System.Drawing.Point(358, 9);
             this.lblBattleInfo.Name = "lblBattleInfo";
-            this.lblBattleInfo.Size = new System.Drawing.Size(0, 20);
+            this.lblBattleInfo.Size = new System.Drawing.Size(156, 342);
             this.lblBattleInfo.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(358, 363);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(190, 22);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Save[Press 1] Load[Press 2]";
             // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 406);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblBattleInfo);
             this.Controls.Add(this.lblMap);
             this.Name = "frmGame";
@@ -72,6 +83,7 @@
 
         private System.Windows.Forms.Label lblMap;
         private System.Windows.Forms.Label lblBattleInfo;
+        private System.Windows.Forms.Label label1;
     }
 }
 

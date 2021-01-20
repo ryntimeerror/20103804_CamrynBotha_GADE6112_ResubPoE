@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace _20103804_Botha_GADE6112_Resub
 {
     //Task 2 - Q2.3
+    [System.Serializable]
     class Mage : Enemy
     {
         public Mage(int x, int y) : base (x, y, 5, 5)

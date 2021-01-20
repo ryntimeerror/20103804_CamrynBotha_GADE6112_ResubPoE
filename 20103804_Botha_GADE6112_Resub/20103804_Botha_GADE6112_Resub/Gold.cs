@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace _20103804_Botha_GADE6112_Resub
 {
     //Task 2 - Q2.2
+    [System.Serializable]
     class Gold : Item
     {
         //backing field aka member var aka field

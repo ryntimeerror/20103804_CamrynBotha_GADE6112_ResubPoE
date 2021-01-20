@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace _20103804_Botha_GADE6112_Resub
 {
+    [System.Serializable]
     //Task 1 - Q2.1
     abstract class Tile
     {

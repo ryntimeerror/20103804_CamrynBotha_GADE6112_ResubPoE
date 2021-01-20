@@ -11,9 +11,10 @@ using System.Threading.Tasks;
 namespace _20103804_Botha_GADE6112_Resub
 {
     //Task 1 - Q2.4
+    [System.Serializable]
     abstract class Enemy : Character
     {
-        protected Random random;
+        static protected Random random;
 
         public Enemy(int x, int y, int damage, int hp) : base(x, y, TileType.ENEMY)
         {
