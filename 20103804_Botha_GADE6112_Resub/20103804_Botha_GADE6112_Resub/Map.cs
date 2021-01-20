@@ -48,7 +48,7 @@ namespace _20103804_Botha_GADE6112_Resub
             //create hero
             hero = (Hero)Create(TileType.HERO);
 
-            //create enemies (gob/mage)
+            //create enemies (gob/mage/leader)
             for (int i = 0; i < enemies.Length; i++)
             {
                 enemies[i] = (Enemy)Create(TileType.ENEMY);
